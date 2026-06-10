@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,52 +9,52 @@
 <style>
 /* ===== CSS VARIABLES ===== */
 :root {
-  --bg-primary: #0a0e1a;
-  --bg-secondary: #0f1628;
-  --bg-card: #131c33;
-  --bg-card-hover: #1a2540;
-  --bg-code: #080d1a;
-  --border: #1e2d4a;
-  --border-light: #243450;
-  --text-primary: #e8edf8;
-  --text-secondary: #8fa3c8;
-  --text-muted: #4d6080;
-  --accent-cyan: #00d4ff;
-  --accent-blue: #3b82f6;
-  --accent-purple: #8b5cf6;
-  --accent-green: #10b981;
-  --accent-orange: #f59e0b;
-  --accent-red: #ef4444;
-  --accent-pink: #ec4899;
-  --glow-cyan: rgba(0,212,255,0.15);
-  --glow-blue: rgba(59,130,246,0.15);
-  --glow-purple: rgba(139,92,246,0.15);
-  --beginner: #10b981;
-  --intermediate: #f59e0b;
-  --advanced: #ef4444;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f4;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafafa;
+  --bg-code: #f8f8f8;
+  --border: #cccccc;
+  --border-light: #e0e0e0;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --accent-cyan: #000000;
+  --accent-blue: #000000;
+  --accent-purple: #000000;
+  --accent-green: #000000;
+  --accent-orange: #000000;
+  --accent-red: #000000;
+  --accent-pink: #000000;
+  --glow-cyan: transparent;
+  --glow-blue: transparent;
+  --glow-purple: transparent;
+  --beginner: #000000;
+  --intermediate: #000000;
+  --advanced: #000000;
   --sidebar-width: 260px;
   --header-height: 60px;
   --font-mono: 'JetBrains Mono', monospace;
   --font-ui: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
-  --radius: 10px;
-  --radius-sm: 6px;
-  --transition: 0.2s ease;
+  --radius: 0px;
+  --radius-sm: 0px;
+  --transition: 0s;
 }
 [data-theme="light"] {
-  --bg-primary: #f0f4ff;
-  --bg-secondary: #e8edf8;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f4;
   --bg-card: #ffffff;
-  --bg-card-hover: #f5f8ff;
-  --bg-code: #1e2a45;
-  --border: #c8d4ea;
-  --border-light: #d8e2f0;
-  --text-primary: #0f1628;
-  --text-secondary: #3d5278;
-  --text-muted: #8fa3c8;
-  --accent-cyan: #0099bb;
-  --glow-cyan: rgba(0,153,187,0.1);
-  --glow-blue: rgba(59,130,246,0.1);
+  --bg-card-hover: #fafafa;
+  --bg-code: #f8f8f8;
+  --border: #cccccc;
+  --border-light: #e0e0e0;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --accent-cyan: #000000;
+  --glow-cyan: transparent;
+  --glow-blue: transparent;
 }
 
 /* ===== RESET & BASE ===== */
@@ -73,14 +73,14 @@ code,pre{font-family:var(--font-mono)}
 /* ===== HEADER ===== */
 #header {
   position:fixed;top:0;left:0;right:0;height:var(--header-height);
-  background:rgba(10,14,26,0.92);backdrop-filter:blur(16px);
+  background:var(--bg-card);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);z-index:1000;
   display:flex;align-items:center;padding:0 16px;gap:12px;
 }
-[data-theme="light"] #header{background:rgba(240,244,255,0.92)}
+[data-theme="light"] #header{background:var(--bg-card)}
 .header-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.1rem;white-space:nowrap}
-.header-logo .logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.header-logo span{background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-logo .logo-icon{width:32px;height:32px;background:var(--bg-card),var(--accent-purple));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.header-logo span{background:var(--bg-card),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 #search-bar{flex:1;max-width:360px;margin-left:auto;position:relative}
 #search-input{width:100%;padding:7px 12px 7px 36px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-size:0.85rem;font-family:var(--font-ui);outline:none;transition:border-color var(--transition)}
 #search-input:focus{border-color:var(--accent-cyan)}
@@ -91,7 +91,7 @@ code,pre{font-family:var(--font-mono)}
 .icon-btn:hover{border-color:var(--accent-cyan);color:var(--accent-cyan)}
 .sidebar-toggle{display:none}
 #progress-bar-container{position:fixed;top:var(--header-height);left:0;right:0;height:2px;z-index:999;background:var(--bg-secondary)}
-#progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));transition:width 0.1s}
+#progress-bar{height:100%;width:0%;background:var(--bg-card),var(--accent-purple));transition:width 0.1s}
 
 /* ===== LAYOUT ===== */
 #layout{
@@ -107,41 +107,41 @@ code,pre{font-family:var(--font-mono)}
   width:100%;position:sticky;top:calc(var(--header-height) + 18px);
   max-height:calc(100vh - var(--header-height) - 36px);overflow-y:auto;
   border:1px solid var(--border);border-radius:18px;
-  background:linear-gradient(180deg,rgba(15,22,40,0.98),rgba(10,14,26,0.94));
+  background:var(--bg-card),rgba(10,14,26,0.94));
   padding:16px 0;z-index:100;transition:transform var(--transition);
 }
-[data-theme="light"] #sidebar{background:rgba(255,255,255,0.92)}
+[data-theme="light"] #sidebar{background:var(--bg-card)}
 #main{min-width:0;width:100%;max-width:none;padding:4px 0 0}
 
 /* ===== SIDEBAR NAV ===== */
 .nav-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);padding:10px 18px 4px;margin-top:8px}
 .nav-item{display:flex;align-items:center;gap:8px;padding:8px 18px;font-size:0.84rem;color:var(--text-secondary);cursor:pointer;border-left:2px solid transparent;transition:all var(--transition);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav-item:hover{color:var(--text-primary);background:var(--bg-card)}
-.nav-item.active{color:var(--accent-cyan);border-left-color:var(--accent-cyan);background:rgba(0,212,255,0.06)}
+.nav-item.active{color:var(--accent-cyan);border-left-color:var(--accent-cyan);background:var(--bg-card)}
 .nav-dot{width:6px;height:6px;border-radius:50%;background:var(--text-muted);flex-shrink:0}
 .nav-item.active .nav-dot,.nav-item:hover .nav-dot{background:var(--accent-cyan)}
 .nav-badge{margin-left:auto;padding:1px 6px;border-radius:20px;font-size:0.62rem;font-weight:600;flex-shrink:0}
-.badge-beginner{background:rgba(16,185,129,0.15);color:var(--beginner)}
-.badge-intermediate{background:rgba(245,158,11,0.15);color:var(--intermediate)}
-.badge-advanced{background:rgba(239,68,68,0.15);color:var(--advanced)}
+.badge-beginner{background:var(--bg-card);color:var(--beginner)}
+.badge-intermediate{background:var(--bg-card);color:var(--intermediate)}
+.badge-advanced{background:var(--bg-card);color:var(--advanced)}
 .progress-widget{margin:16px;padding:12px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);font-size:0.8rem}
 .progress-widget .pw-label{color:var(--text-muted);margin-bottom:6px}
 .progress-widget .pw-bar{height:4px;background:var(--bg-secondary);border-radius:2px;overflow:hidden;margin-bottom:6px}
-.progress-widget .pw-fill{height:100%;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));border-radius:2px;transition:width 0.5s}
+.progress-widget .pw-fill{height:100%;background:var(--bg-card),var(--accent-purple));border-radius:2px;transition:width 0.5s}
 .progress-widget .pw-count{color:var(--accent-cyan);font-weight:600}
 
 /* ===== SECTION ===== */
 .section{margin-bottom:56px;scroll-margin-top:80px}
 .section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
 .section-icon{width:42px;height:42px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.icon-bg-cyan{background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(59,130,246,0.2));border:1px solid rgba(0,212,255,0.3)}
-.icon-bg-purple{background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(236,72,153,0.2));border:1px solid rgba(139,92,246,0.3)}
-.icon-bg-green{background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(59,130,246,0.2));border:1px solid rgba(16,185,129,0.3)}
-.icon-bg-orange{background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.2));border:1px solid rgba(245,158,11,0.3)}
-.icon-bg-red{background:linear-gradient(135deg,rgba(239,68,68,0.2),rgba(139,92,246,0.2));border:1px solid rgba(239,68,68,0.3)}
-.icon-bg-pink{background:linear-gradient(135deg,rgba(236,72,153,0.2),rgba(245,158,11,0.2));border:1px solid rgba(236,72,153,0.3)}
+.icon-bg-cyan{background:var(--bg-card),rgba(59,130,246,0.2));border:1px solid rgba(0,212,255,0.3)}
+.icon-bg-purple{background:var(--bg-card),rgba(236,72,153,0.2));border:1px solid rgba(139,92,246,0.3)}
+.icon-bg-green{background:var(--bg-card),rgba(59,130,246,0.2));border:1px solid rgba(16,185,129,0.3)}
+.icon-bg-orange{background:var(--bg-card),rgba(239,68,68,0.2));border:1px solid rgba(245,158,11,0.3)}
+.icon-bg-red{background:var(--bg-card),rgba(139,92,246,0.2));border:1px solid rgba(239,68,68,0.3)}
+.icon-bg-pink{background:var(--bg-card),rgba(245,158,11,0.2));border:1px solid rgba(236,72,153,0.3)}
 .section-title{font-family:var(--font-display);font-size:1.6rem;font-weight:700}
-.section-title .highlight{background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-title .highlight{background:var(--bg-card),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-subtitle{color:var(--text-secondary);font-size:0.875rem;margin-top:2px}
 .difficulty-badge{padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase}
 
@@ -170,18 +170,18 @@ code,pre{font-family:var(--font-mono)}
 
 /* ===== CODE BLOCKS ===== */
 .code-block{position:relative;background:var(--bg-code);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:12px 0}
-.code-header{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02)}
+.code-header{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--border);background:var(--bg-card)}
 .code-lang{font-size:0.72rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;text-transform:uppercase}
 .copy-btn{font-size:0.72rem;padding:3px 10px;border-radius:4px;border:1px solid var(--border);color:var(--text-secondary);background:transparent;transition:all var(--transition);font-family:var(--font-ui)}
 .copy-btn:hover{border-color:var(--accent-cyan);color:var(--accent-cyan)}
 .copy-btn.copied{border-color:var(--accent-green);color:var(--accent-green)}
-.code-block pre{padding:16px;overflow-x:auto;font-size:0.82rem;line-height:1.7;color:#cdd9f5}
-.code-block pre .kw{color:#82aaff}
-.code-block pre .fn{color:#82cfff}
-.code-block pre .cm{color:#546a8a;font-style:italic}
-.code-block pre .st{color:#c3e88d}
-.code-block pre .nm{color:#f78c6c}
-.code-block pre .op{color:#89ddff}
+.code-block pre{padding:16px;overflow-x:auto;font-size:0.82rem;line-height:1.7;color:#000000}
+.code-block pre .kw{color:#0000ff;font-weight:bold}
+.code-block pre .fn{color:#000000;font-weight:bold}
+.code-block pre .cm{color:#666666;font-style:italic}
+.code-block pre .st{color:#008000}
+.code-block pre .nm{color:#000000}
+.code-block pre .op{color:#000000}
 
 /* ===== COMPARISON TABLE ===== */
 .table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
@@ -193,13 +193,13 @@ tr:hover td{background:var(--bg-card-hover)}
 td.good{color:var(--accent-green)}
 td.bad{color:var(--accent-red)}
 td.mid{color:var(--accent-orange)}
-td code{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-cyan);background:rgba(0,212,255,0.08);padding:1px 6px;border-radius:3px}
+td code{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-cyan);background:var(--bg-card);padding:1px 6px;border-radius:3px}
 
 /* ===== COMPLEXITY PILLS ===== */
 .complexity-row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
 .complexity-pill{padding:5px 12px;border-radius:20px;font-family:var(--font-mono);font-size:0.78rem;font-weight:600;display:flex;align-items:center;gap:6px}
-.cp-time{background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#82aaff}
-.cp-space{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7}
+.cp-time{background:var(--bg-card);border:1px solid rgba(59,130,246,0.3);color:#82aaff}
+.cp-space{background:var(--bg-card);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7}
 .cp-label{font-family:var(--font-ui);font-weight:400;color:var(--text-muted);font-size:0.72rem}
 
 /* ===== ALGORITHM SECTIONS ===== */
@@ -218,7 +218,7 @@ td code{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-cyan);
   --topic-accent:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));
   grid-column:span 4;position:relative;min-width:0;padding:22px;
   border:1px solid var(--border);border-radius:18px;
-  background:linear-gradient(180deg,rgba(19,28,51,0.96),rgba(10,14,26,0.98));
+  background:var(--bg-card),rgba(10,14,26,0.98));
   overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,0.18);
   transition:transform var(--transition),border-color var(--transition),box-shadow var(--transition);
 }
@@ -233,7 +233,7 @@ td code{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-cyan);
 .advanced-card-desc{margin-bottom:0;font-size:0.84rem;max-width:58ch}
 .advanced-kicker,.advanced-rank,.advanced-chip{
   display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;
-  border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);background:var(--bg-card);
   font-size:0.68rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;
 }
 .advanced-kicker{color:var(--text-primary)}
@@ -243,27 +243,27 @@ td code{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-cyan);
 .advanced-points{display:grid;gap:10px;margin:0;padding:0;list-style:none}
 .advanced-points li{
   padding:11px 12px;border:1px solid rgba(255,255,255,0.05);border-radius:12px;
-  background:rgba(255,255,255,0.03);font-size:0.82rem;color:var(--text-secondary);line-height:1.55;
+  background:var(--bg-card);font-size:0.82rem;color:var(--text-secondary);line-height:1.55;
 }
 .advanced-points strong,.advanced-mini strong{color:var(--text-primary)}
 .advanced-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
 .advanced-mini{
   padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);
-  background:rgba(255,255,255,0.03);font-size:0.8rem;color:var(--text-secondary);line-height:1.55;
+  background:var(--bg-card);font-size:0.8rem;color:var(--text-secondary);line-height:1.55;
 }
 .advanced-mini-title{font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
 .advanced-stack{display:grid;gap:12px;margin-top:16px}
 .advanced-note{
-  padding:12px 14px;border-radius:12px;background:rgba(59,130,246,0.08);
+  padding:12px 14px;border-radius:12px;background:var(--bg-card);
   border:1px solid rgba(59,130,246,0.16);font-size:0.8rem;color:var(--text-secondary);line-height:1.55;
 }
-.advanced-note.warn{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.18)}
+.advanced-note.warn{background:var(--bg-card);border-color:rgba(245,158,11,0.18)}
 .advanced-note strong{color:var(--text-primary)}
 
 /* ===== QUICK NOTES ===== */
-.quick-notes-btn{padding:6px 14px;border-radius:var(--radius-sm);border:1px solid var(--accent-purple);color:var(--accent-purple);background:rgba(139,92,246,0.08);font-size:0.8rem;font-weight:600;transition:all var(--transition);display:inline-flex;align-items:center;gap:6px}
-.quick-notes-btn:hover{background:rgba(139,92,246,0.18)}
-.quick-notes{display:none;margin-top:12px;padding:16px;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.25);border-radius:var(--radius)}
+.quick-notes-btn{padding:6px 14px;border-radius:var(--radius-sm);border:1px solid var(--accent-purple);color:var(--accent-purple);background:var(--bg-card);font-size:0.8rem;font-weight:600;transition:all var(--transition);display:inline-flex;align-items:center;gap:6px}
+.quick-notes-btn:hover{background:var(--bg-card)}
+.quick-notes{display:none;margin-top:12px;padding:16px;background:var(--bg-card);border:1px solid rgba(139,92,246,0.25);border-radius:var(--radius)}
 .quick-notes.show{display:block}
 .qn-title{font-weight:700;color:var(--accent-purple);margin-bottom:10px;font-size:0.9rem;display:flex;align-items:center;gap:6px}
 .qn-list{display:flex;flex-direction:column;gap:6px}
@@ -280,21 +280,21 @@ td code{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent-cyan);
 canvas.graph-canvas{display:block;width:100%;height:220px}
 
 /* ===== DECISION TREE ===== */
-.decision-tree{background:linear-gradient(135deg,rgba(8,13,26,0.96),rgba(19,28,51,0.92));border:1px solid var(--border);border-radius:var(--radius);padding:18px;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.03)}
+.decision-tree{background:var(--bg-card),rgba(19,28,51,0.92));border:1px solid var(--border);border-radius:var(--radius);padding:18px;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.03)}
 .dt-title{display:flex;align-items:center;gap:10px;margin-bottom:16px;font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text-primary)}
-.dt-title-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-blue));color:#02101c;font-family:var(--font-mono);font-size:0.8rem;font-weight:800;box-shadow:0 0 18px var(--glow-cyan);flex-shrink:0}
-.dt-root-card{padding:14px 16px;border:1px solid rgba(0,212,255,0.28);border-radius:8px;background:rgba(0,212,255,0.07);font-family:var(--font-display);font-weight:700;color:var(--accent-cyan)}
+.dt-title-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--bg-card),var(--accent-blue));color:#02101c;font-family:var(--font-mono);font-size:0.8rem;font-weight:800;box-shadow:0 0 18px var(--glow-cyan);flex-shrink:0}
+.dt-root-card{padding:14px 16px;border:1px solid rgba(0,212,255,0.28);border-radius:8px;background:var(--bg-card);font-family:var(--font-display);font-weight:700;color:var(--accent-cyan)}
 .dt-branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
-.dt-branch-card{position:relative;border:1px solid var(--border);border-radius:8px;background:rgba(19,28,51,0.88);padding:14px;min-height:100%;transition:transform var(--transition),border-color var(--transition),box-shadow var(--transition)}
+.dt-branch-card{position:relative;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);padding:14px;min-height:100%;transition:transform var(--transition),border-color var(--transition),box-shadow var(--transition)}
 .dt-branch-card:hover{transform:translateY(-2px);border-color:var(--accent-cyan);box-shadow:0 8px 28px rgba(0,0,0,0.22)}
 .dt-branch-label{display:flex;align-items:center;gap:8px;margin-bottom:10px;color:var(--accent-orange);font-family:var(--font-display);font-size:0.9rem;font-weight:700}
 .dt-branch-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent-orange);box-shadow:0 0 12px rgba(245,158,11,0.45);flex-shrink:0}
 .dt-options{display:grid;gap:10px}
-.dt-result{border:1px solid rgba(16,185,129,0.22);border-left:3px solid var(--accent-green);border-radius:8px;background:rgba(16,185,129,0.06);padding:11px 12px}
+.dt-result{border:1px solid rgba(16,185,129,0.22);border-left:3px solid var(--accent-green);border-radius:8px;background:var(--bg-card);padding:11px 12px}
 .dt-result strong{display:block;margin-bottom:4px;color:var(--text-primary);font-family:var(--font-display);font-size:0.92rem}
 .dt-result p{margin:0;color:var(--text-secondary);font-size:0.8rem;line-height:1.45}
 .dt-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.dt-chip{padding:2px 7px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--text-secondary);font-family:var(--font-mono);font-size:0.68rem;font-weight:600}
+.dt-chip{padding:2px 7px;border-radius:999px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-secondary);font-family:var(--font-mono);font-size:0.68rem;font-weight:600}
 .dt-chip-fast{border-color:rgba(0,212,255,0.28);color:var(--accent-cyan)}
 .dt-chip-safe{border-color:rgba(16,185,129,0.28);color:var(--accent-green)}
 .dt-chip-warn{border-color:rgba(245,158,11,0.28);color:var(--accent-orange)}
@@ -305,12 +305,12 @@ canvas.graph-canvas{display:block;width:100%;height:220px}
 .roadmap-step{display:flex;flex-direction:column;align-items:center;width:100%;max-width:480px}
 .roadmap-node{width:100%;padding:14px 20px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-card);display:flex;align-items:center;gap:14px;cursor:pointer;transition:all var(--transition);position:relative;z-index:1}
 .roadmap-node:hover{transform:translateX(4px);border-color:var(--accent-cyan);box-shadow:0 0 20px var(--glow-cyan)}
-.roadmap-node.active{border-color:var(--accent-cyan);background:rgba(0,212,255,0.06)}
-.rn-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));color:#fff;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-display)}
+.roadmap-node.active{border-color:var(--accent-cyan);background:var(--bg-card)}
+.rn-num{width:32px;height:32px;border-radius:50%;background:var(--bg-card),var(--accent-purple));color:#fff;font-weight:700;font-size:0.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-display)}
 .rn-content{flex:1}
 .rn-label{font-weight:600;font-size:0.9rem;font-family:var(--font-display)}
 .rn-sub{font-size:0.72rem;color:var(--text-secondary);margin-top:2px}
-.roadmap-arrow{width:2px;height:28px;background:linear-gradient(to bottom,var(--accent-cyan),var(--accent-purple));opacity:0.5;position:relative}
+.roadmap-arrow{width:2px;height:28px;background:var(--bg-card),var(--accent-purple));opacity:0.5;position:relative}
 .roadmap-arrow::after{content:'▼';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--accent-cyan);opacity:0.7}
 
 /* ===== FLOWCHART ===== */
@@ -324,13 +324,13 @@ canvas.graph-canvas{display:block;width:100%;height:220px}
 /* ===== INFO BOXES ===== */
 .info-box{padding:12px 16px;border-radius:var(--radius-sm);margin:10px 0;font-size:0.84rem;line-height:1.6;display:flex;gap:10px;align-items:flex-start}
 .info-box .ib-icon{flex-shrink:0;font-size:16px;margin-top:1px}
-.ib-tip{background:rgba(16,185,129,0.08);border-left:3px solid var(--accent-green)}
-.ib-warn{background:rgba(245,158,11,0.08);border-left:3px solid var(--accent-orange)}
-.ib-note{background:rgba(59,130,246,0.08);border-left:3px solid var(--accent-blue)}
-.ib-danger{background:rgba(239,68,68,0.08);border-left:3px solid var(--accent-red)}
+.ib-tip{background:var(--bg-card);border-left:3px solid var(--accent-green)}
+.ib-warn{background:var(--bg-card);border-left:3px solid var(--accent-orange)}
+.ib-note{background:var(--bg-card);border-left:3px solid var(--accent-blue)}
+.ib-danger{background:var(--bg-card);border-left:3px solid var(--accent-red)}
 
 /* ===== INTERVIEW QS ===== */
-.interview-qs{background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius);padding:16px;margin-top:12px}
+.interview-qs{background:var(--bg-card);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius);padding:16px;margin-top:12px}
 .iq-title{font-size:0.82rem;font-weight:700;color:var(--accent-blue);margin-bottom:10px;display:flex;align-items:center;gap:6px}
 .iq-list{display:flex;flex-direction:column;gap:5px}
 .iq-item{font-size:0.8rem;color:var(--text-secondary);padding:6px 10px;background:var(--bg-card);border-radius:var(--radius-sm);display:flex;align-items:flex-start;gap:8px}
@@ -343,14 +343,14 @@ canvas.graph-canvas{display:block;width:100%;height:220px}
 .sr-item:hover{background:var(--bg-card-hover)}
 .sr-name{font-size:0.85rem;font-weight:600;color:var(--text-primary)}
 .sr-section{font-size:0.72rem;color:var(--text-muted)}
-mark{background:rgba(0,212,255,0.2);color:var(--accent-cyan);padding:0 2px;border-radius:2px}
+mark{background:var(--bg-card);color:var(--accent-cyan);padding:0 2px;border-radius:2px}
 
 /* ===== HERO ===== */
-#hero{background:linear-gradient(135deg,var(--bg-secondary) 0%,var(--bg-card) 100%);border:1px solid var(--border);border-radius:14px;padding:36px;margin-bottom:40px;position:relative;overflow:hidden}
+#hero{background:var(--bg-card) 0%,var(--bg-card) 100%);border:1px solid var(--border);border-radius:14px;padding:36px;margin-bottom:40px;position:relative;overflow:hidden}
 #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,var(--glow-purple),transparent 60%);pointer-events:none}
-.hero-tag{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-cyan);background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.25);padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:14px}
+.hero-tag{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-cyan);background:var(--bg-card);border:1px solid rgba(0,212,255,0.25);padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:14px}
 .hero-title{font-family:var(--font-display);font-size:2rem;font-weight:700;line-height:1.15;margin-bottom:12px}
-.hero-title em{font-style:normal;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title em{font-style:normal;background:var(--bg-card),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{color:var(--text-secondary);font-size:0.9rem;max-width:560px;margin-bottom:20px;line-height:1.7}
 .hero-stats{display:flex;gap:20px;flex-wrap:wrap}
 .hero-stat{display:flex;flex-direction:column;gap:2px}
@@ -369,7 +369,7 @@ mark{background:rgba(0,212,255,0.2);color:var(--accent-cyan);padding:0 2px;borde
 /* ===== STEP LIST ===== */
 .step-list{display:flex;flex-direction:column;gap:8px;margin:12px 0}
 .step-item{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;background:var(--bg-card);border-radius:var(--radius-sm);font-size:0.84rem;line-height:1.5}
-.step-num{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));color:#fff;font-weight:700;font-size:0.72rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:var(--font-mono)}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--bg-card),var(--accent-purple));color:#fff;font-weight:700;font-size:0.72rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:var(--font-mono)}
 .step-text{color:var(--text-secondary)}
 .step-text strong{color:var(--text-primary)}
 
@@ -408,22 +408,22 @@ mark{background:rgba(0,212,255,0.2);color:var(--accent-cyan);padding:0 2px;borde
 .fade-in{animation:fadeInUp 0.4s ease both}
 
 /* ===== MISC ===== */
-.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:40px 0}
+.section-divider{height:1px;background:var(--bg-card),transparent);margin:40px 0}
 p{color:var(--text-secondary);font-size:0.875rem;line-height:1.7;margin-bottom:10px}
 p strong{color:var(--text-primary)}
 h3{font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin:16px 0 8px;color:var(--text-primary)}
 h4{font-family:var(--font-display);font-size:0.9rem;font-weight:600;margin:12px 0 6px;color:var(--text-secondary)}
-.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.72rem;font-weight:600;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:var(--accent-cyan);margin:2px}
-.use-when{background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius);padding:14px 16px;margin:10px 0}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.72rem;font-weight:600;background:var(--bg-card);border:1px solid rgba(0,212,255,0.2);color:var(--accent-cyan);margin:2px}
+.use-when{background:var(--bg-card);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius);padding:14px 16px;margin:10px 0}
 .use-when-title{font-size:0.8rem;font-weight:700;color:var(--accent-green);margin-bottom:8px}
-.dont-use{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius);padding:14px 16px;margin:10px 0}
+.dont-use{background:var(--bg-card);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius);padding:14px 16px;margin:10px 0}
 .dont-use-title{font-size:0.8rem;font-weight:700;color:var(--accent-red);margin-bottom:8px}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:600px){.two-col{grid-template-columns:1fr}}
 @media(max-width:1180px){
   .advanced-topic-card{grid-column:span 6}
 }
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99;display:none}
+.overlay{position:fixed;inset:0;background:var(--bg-card);z-index:99;display:none}
 .overlay.show{display:block}
 </style>
 </head>
@@ -502,7 +502,7 @@ h4{font-family:var(--font-display);font-size:0.9rem;font-weight:600;margin:12px 
           <div class="section-title"><span class="highlight">Graph</span> Fundamentals</div>
           <div class="section-subtitle">What is a graph? Types, terminology, and core concepts.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(16,185,129,0.15);color:var(--beginner)">Beginner</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--beginner)">Beginner</span>
       </div>
 
       <p>A <strong>graph</strong> G = (V, E) is a non-linear data structure consisting of a finite set of <strong>vertices (nodes) V</strong> and a set of <strong>edges E</strong> connecting pairs of vertices. Graphs model real-world relationships: networks, maps, dependencies, social connections, and more.</p>
@@ -559,7 +559,7 @@ h4{font-family:var(--font-display);font-size:0.9rem;font-weight:600;margin:12px 
           <div class="section-title"><span class="highlight">Graph</span> Representation</div>
           <div class="section-subtitle">How to store graphs in memory for algorithms.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(16,185,129,0.15);color:var(--beginner)">Beginner</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--beginner)">Beginner</span>
       </div>
 
       <button class="quick-notes-btn" onclick="toggleQuickNotes('qn-repr')">⚡ Show Quick Notes</button>
@@ -685,7 +685,7 @@ edges.sort(key=<span class="kw">lambda</span> e: e[<span class="nm">2</span>])
           <div class="section-title"><span class="highlight">BFS</span> & <span class="highlight">DFS</span></div>
           <div class="section-subtitle">The two fundamental graph traversal algorithms.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(16,185,129,0.15);color:var(--beginner)">Beginner</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--beginner)">Beginner</span>
       </div>
 
       <!-- DFS -->
@@ -937,7 +937,7 @@ graph = {
           <div class="section-title"><span class="highlight">Shortest Path</span> Algorithms</div>
           <div class="section-subtitle">BFS, Dijkstra, Bellman-Ford, Floyd-Warshall, DAG SP.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate)">Intermediate</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate)">Intermediate</span>
       </div>
 
       <h3>Decision Tree: Which Algorithm to Use?</h3>
@@ -1016,7 +1016,7 @@ graph = {
         <div class="algo-header" onclick="toggleAlgo(this)">
           <div class="algo-title">⚡ Dijkstra's Algorithm</div>
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate);font-size:0.68rem">Intermediate</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate);font-size:0.68rem">Intermediate</span>
             <div class="complexity-pill cp-time" style="font-size:0.72rem;padding:3px 8px">O((V+E)logV)</div>
             <div class="algo-toggle">▼</div>
           </div>
@@ -1093,7 +1093,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
         <div class="algo-header" onclick="toggleAlgo(this)">
           <div class="algo-title">🔴 Bellman-Ford Algorithm</div>
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate);font-size:0.68rem">Intermediate</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate);font-size:0.68rem">Intermediate</span>
             <div class="complexity-pill cp-time" style="font-size:0.72rem;padding:3px 8px">O(VE)</div>
             <div class="algo-toggle">▼</div>
           </div>
@@ -1159,7 +1159,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
         <div class="algo-header" onclick="toggleAlgo(this)">
           <div class="algo-title">🌐 Floyd-Warshall Algorithm</div>
           <div style="display:flex;align-items:center;gap:8px">
-            <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate);font-size:0.68rem">Intermediate</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate);font-size:0.68rem">Intermediate</span>
             <div class="complexity-pill cp-time" style="font-size:0.72rem;padding:3px 8px">O(V³)</div>
             <div class="algo-toggle">▼</div>
           </div>
@@ -1221,7 +1221,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
           <div class="section-title"><span class="highlight">Topological</span> Sorting</div>
           <div class="section-subtitle">Linear ordering of vertices in a DAG. Two approaches: DFS and Kahn's.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate)">Intermediate</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate)">Intermediate</span>
       </div>
 
       <p>Topological sort produces a linear ordering of vertices in a <strong>Directed Acyclic Graph (DAG)</strong> such that for every directed edge u→v, vertex u comes before v. Only possible if the graph has <strong>no cycles</strong>.</p>
@@ -1331,7 +1331,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
           <div class="section-title">Minimum <span class="highlight">Spanning Tree</span></div>
           <div class="section-subtitle">Prim's, Kruskal's, and Union-Find / DSU.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate)">Intermediate</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate)">Intermediate</span>
       </div>
 
       <p>A <strong>Minimum Spanning Tree (MST)</strong> is a subset of edges of a connected weighted undirected graph that connects all vertices with minimum total edge weight, without forming any cycle. |Edges in MST| = V - 1.</p>
@@ -1454,7 +1454,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
           <div class="section-title">Strongly <span class="highlight">Connected Components</span></div>
           <div class="section-subtitle">Kosaraju's and Tarjan's algorithms for finding SCCs.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(239,68,68,0.15);color:var(--advanced)">Advanced</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--advanced)">Advanced</span>
       </div>
 
       <p>A <strong>Strongly Connected Component (SCC)</strong> is a maximal set of vertices such that there is a path from each vertex to every other vertex in the set. Only applicable to <strong>directed graphs</strong>.</p>
@@ -1541,7 +1541,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
           <div class="section-title">Union Find <span class="highlight">(DSU)</span></div>
           <div class="section-subtitle">Disjoint Set Union — the most powerful connectivity structure.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate)">Intermediate</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate)">Intermediate</span>
       </div>
 
       <p>Union-Find (Disjoint Set Union) is a data structure that tracks a set of elements partitioned into disjoint subsets. Supports two operations: <strong>Find</strong> (which set does element belong to?) and <strong>Union</strong> (merge two sets). Used in Kruskal's MST, cycle detection, and network connectivity.</p>
@@ -1625,7 +1625,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
           <div class="section-title"><span class="highlight">Advanced</span> Graph Topics</div>
           <div class="section-subtitle">Bridges, articulation points, bipartite check, cycle detection, and more.</div>
         </div>
-        <span class="difficulty-badge" style="background:rgba(239,68,68,0.15);color:var(--advanced)">Advanced</span>
+        <span class="difficulty-badge" style="background:var(--bg-card);color:var(--advanced)">Advanced</span>
       </div>
 
       <div class="advanced-topics-grid">
@@ -2210,7 +2210,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Graph Fundamentals</div>
               <div class="rn-sub">Types, terminology, basic properties</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(16,185,129,0.15);color:var(--beginner);font-size:0.65rem">Beginner</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--beginner);font-size:0.65rem">Beginner</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2221,7 +2221,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Graph Representation</div>
               <div class="rn-sub">Adj matrix, adj list, edge list — when to use each</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(16,185,129,0.15);color:var(--beginner);font-size:0.65rem">Beginner</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--beginner);font-size:0.65rem">Beginner</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2232,7 +2232,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">BFS & DFS Traversal</div>
               <div class="rn-sub">Core traversal algorithms — must master before anything else</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(16,185,129,0.15);color:var(--beginner);font-size:0.65rem">Beginner</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--beginner);font-size:0.65rem">Beginner</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2243,7 +2243,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Topological Sort</div>
               <div class="rn-sub">DFS finish-order & Kahn's — critical for scheduling problems</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2254,7 +2254,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Union Find / DSU</div>
               <div class="rn-sub">Path compression, union by rank — used in MST and connectivity</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2265,7 +2265,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Shortest Path Algorithms</div>
               <div class="rn-sub">Dijkstra, Bellman-Ford, Floyd-Warshall — weighted graph mastery</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2276,7 +2276,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Minimum Spanning Tree</div>
               <div class="rn-sub">Prim's & Kruskal's — find minimum cost connections</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(245,158,11,0.15);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--intermediate);font-size:0.65rem">Intermediate</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2287,7 +2287,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Strongly Connected Components</div>
               <div class="rn-sub">Kosaraju's & Tarjan's — advanced directed graph analysis</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(239,68,68,0.15);color:var(--advanced);font-size:0.65rem">Advanced</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--advanced);font-size:0.65rem">Advanced</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2298,7 +2298,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Advanced Topics</div>
               <div class="rn-sub">Bridges, APs, bipartite, cycle detection, Euler paths, flows</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(239,68,68,0.15);color:var(--advanced);font-size:0.65rem">Advanced</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--advanced);font-size:0.65rem">Advanced</span>
           </div>
           <div class="roadmap-arrow"></div>
         </div>
@@ -2309,7 +2309,7 @@ graph = {<span class="nm">0</span>:[(<span class="nm">1</span>,<span class="nm">
               <div class="rn-label">Interview & CP Mastery</div>
               <div class="rn-sub">Practice problems, pattern recognition, time under pressure</div>
             </div>
-            <span class="difficulty-badge" style="background:rgba(0,212,255,0.15);color:var(--accent-cyan);font-size:0.65rem">Master</span>
+            <span class="difficulty-badge" style="background:var(--bg-card);color:var(--accent-cyan);font-size:0.65rem">Master</span>
           </div>
         </div>
       </div>
